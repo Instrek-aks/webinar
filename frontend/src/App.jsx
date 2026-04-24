@@ -21,11 +21,13 @@ function LandingPage() {
   const [status, setStatus] = useState('idle'); 
   const [errorMessage, setErrorMessage] = useState('');
   const [copied, setCopied] = useState(false);
+  const [wasAlreadyRegistered, setWasAlreadyRegistered] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('loading');
     setErrorMessage('');
+    setWasAlreadyRegistered(false);
     
     try {
       const response = await fetch(API_URL, {
@@ -47,6 +49,12 @@ function LandingPage() {
       }
 
       if (!response.ok) {
+        // If already registered, we still want to show them the success modal with the link
+        if (data.message && data.message.toLowerCase().includes('already registered')) {
+          setWasAlreadyRegistered(true);
+          setStatus('success');
+          return;
+        }
         throw new Error(data.message || 'Failed to register');
       }
       
@@ -261,8 +269,12 @@ function LandingPage() {
               <div style={{ width: '80px', height: '80px', background: 'var(--gold-soft)', color: 'var(--gold)', borderRadius: '50%', display: 'grid', placeItems: 'center', margin: '0 auto 2rem' }}>
                 <CheckCircle2 size={40} />
               </div>
-              <h2 style={{ fontFamily: 'IBM Plex Serif', fontSize: '2.5rem', marginBottom: '1rem' }}>Thank you for registering!</h2>
-              <p style={{ color: 'var(--ink-soft)', marginBottom: '2.5rem' }}>Below is the link to join the webinar:</p>
+              <h2 style={{ fontFamily: 'IBM Plex Serif', fontSize: '2.5rem', marginBottom: '1rem' }}>
+                {wasAlreadyRegistered ? "Already Registered!" : "Thank you for registering!"}
+              </h2>
+              <p style={{ color: 'var(--ink-soft)', marginBottom: '2.5rem' }}>
+                {wasAlreadyRegistered ? "You are already on our list. Here is your joining link again:" : "Below is the link to join the webinar:"}
+              </p>
               
               <div style={{ background: '#F8FAFC', padding: '1.25rem', borderRadius: '16px', textAlign: 'left', marginBottom: '2.5rem' }}>
                 <div style={{ fontSize: '0.65rem', fontWeight: 600, color: 'var(--ink-muted)', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Joining Link</div>
