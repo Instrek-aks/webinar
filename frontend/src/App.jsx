@@ -9,7 +9,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import AdminDashboard from './AdminDashboard';
 
 const GMEET_LINK = "https://meet.google.com/kcn-odrt-ean";
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api/register"; 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API_URL = API_BASE_URL.endsWith('/api/register') ? API_BASE_URL : `${API_BASE_URL.replace(/\/$/, '')}/api/register`;
 
 function LandingPage() {
   const [formData, setFormData] = useState({
@@ -22,6 +23,8 @@ function LandingPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('loading');
+    setErrorMessage('');
+    
     try {
       const response = await fetch(API_URL, {
         method: 'POST',
@@ -29,15 +32,26 @@ function LandingPage() {
         body: JSON.stringify(formData)
       });
 
+      const contentType = response.headers.get("content-type");
+      let data;
+      
+      if (contentType && contentType.includes("application/json")) {
+        data = await response.json();
+      } else {
+        // If not JSON, it might be a 404 HTML page or other error
+        const text = await response.text();
+        console.error('Non-JSON response received:', text);
+        throw new Error(`Server error: ${response.status} ${response.statusText}`);
+      }
+
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Failed to register');
+        throw new Error(data.message || 'Failed to register');
       }
       
       setStatus('success');
     } catch (err) {
       console.error('Registration error:', err);
-      setErrorMessage(err.message);
+      setErrorMessage(err.message || 'An unexpected error occurred');
       setStatus('error');
     }
   };

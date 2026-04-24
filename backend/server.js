@@ -2,12 +2,27 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 
 const app = express();
-app.use(cors());
+
+const corsOptions = {
+  origin: [process.env.FRONTEND_URL, 'http://localhost:5173', 'http://localhost:3000'].filter(Boolean),
+  credentials: true,
+};
+
+app.use(cors(process.env.FRONTEND_URL ? corsOptions : cors()));
 app.use(express.json());
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Serve static files from the frontend/dist directory
+const frontendPath = path.join(__dirname, '../frontend/dist');
+app.use(express.static(frontendPath));
 
 // MongoDB Connection
 const mongoURI = process.env.MONGODB_URI;
@@ -68,6 +83,20 @@ app.get('/api/registrations', async (req, res) => {
     console.error(error);
     res.status(500).json({ message: 'Error fetching registrations' });
   }
+});
+
+// Catch-all route to serve index.html for any non-API routes (supports React Router)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(frontendPath, 'index.html'), (err) => {
+    if (err) {
+      // Don't send 404 for the root if build is missing, just log it
+      if (req.path === '/') {
+        res.status(404).send('Welcome to the API. Frontend build not found.');
+      } else {
+        res.status(404).json({ message: 'Route not found' });
+      }
+    }
+  });
 });
 
 const PORT = process.env.PORT || 5000;
