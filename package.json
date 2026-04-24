@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "build": "npm install && cd frontend && npm install && npm run build && cd ../backend && npm install",
+    "build": "echo '--- BUILDING FRONTEND ---' && cd frontend && npm install && npm run build && echo '--- SETTING UP BACKEND ---' && cd ../backend && npm install && echo '--- BUILD COMPLETE ---'",
     "start": "cd backend && node server.js",
     "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\""
   },
