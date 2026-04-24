@@ -87,13 +87,27 @@ app.get('/api/registrations', async (req, res) => {
 
 // Catch-all route to serve index.html for any non-API routes (supports React Router)
 app.get('*', (req, res) => {
-  res.sendFile(path.join(frontendPath, 'index.html'), (err) => {
+  const indexPath = path.join(frontendPath, 'index.html');
+  res.sendFile(indexPath, (err) => {
     if (err) {
-      // Don't send 404 for the root if build is missing, just log it
-      if (req.path === '/') {
-        res.status(404).send('Welcome to the API. Frontend build not found.');
+      console.error(`Error sending file at ${indexPath}:`, err);
+      if (req.path.startsWith('/api/')) {
+        res.status(404).json({ message: 'API route not found' });
       } else {
-        res.status(404).json({ message: 'Route not found' });
+        res.status(404).send(`
+          <html>
+            <body style="font-family: sans-serif; padding: 2rem; line-height: 1.6;">
+              <h1 style="color: #e11d48;">Frontend Build Not Found</h1>
+              <p>The backend is running, but it cannot find the built frontend files at:</p>
+              <code style="background: #f1f5f9; padding: 0.5rem; border-radius: 4px;">${frontendPath}</code>
+              <p><strong>To fix this:</strong></p>
+              <ol>
+                <li>Make sure your Render <b>Build Command</b> is set to <code>npm run build</code>.</li>
+                <li>Check your Render logs to ensure the frontend build actually succeeded.</li>
+              </ol>
+            </body>
+          </html>
+        `);
       }
     }
   });
