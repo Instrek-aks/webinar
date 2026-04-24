@@ -9,7 +9,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import AdminDashboard from './AdminDashboard';
 
 const GMEET_LINK = "https://meet.google.com/kcn-odrt-ean";
-const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API_BASE_URL = import.meta.env.VITE_API_URL || 
+  (window.location.hostname === 'localhost' ? "http://localhost:5000" : window.location.origin);
+
 const API_URL = API_BASE_URL.endsWith('/api/register') ? API_BASE_URL : `${API_BASE_URL.replace(/\/$/, '')}/api/register`;
 
 function LandingPage() {

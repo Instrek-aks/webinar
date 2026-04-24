@@ -7,7 +7,9 @@ import {
 import * as XLSX from 'xlsx';
 
 const GMEET_LINK = "https://meet.google.com/kcn-odrt-ean";
-const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API_BASE_URL = import.meta.env.VITE_API_URL || 
+  (window.location.hostname === 'localhost' ? "http://localhost:5000" : window.location.origin);
+
 const API_URL = API_BASE_URL.endsWith('/api/registrations') ? API_BASE_URL : `${API_BASE_URL.replace(/\/$/, '')}/api/registrations`;
 
 export default function AdminDashboard({ onBack }) {
