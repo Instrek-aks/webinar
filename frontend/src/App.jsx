@@ -78,8 +78,7 @@ function LandingPage() {
       <nav className="nav-bar">
         <div className="nav-inner">
           <a href="/" className="nav-logo">
-            <div style={{ background: 'var(--navy)', color: 'var(--gold)', width: '32px', height: '32px', display: 'grid', placeItems: 'center', borderRadius: '6px', fontWeight: 'bold' }}>L</div>
-            Legal<span>Olympiad</span>
+            <img src="/leagal olympiad white logo.png" alt="Legal Olympiad Logo" style={{ height: '32px', width: 'auto' }} />
           </a>
         </div>
       </nav>
@@ -93,7 +92,7 @@ function LandingPage() {
             className="hero-text"
           >
             <div className="flex items-center gap-2 text-gold-soft mb-6 text-sm font-mono tracking-widest uppercase">
-              Masterclass Series 2026
+              Webinar Series 2026
             </div>
             <h1>The Power to Say Yes <span>(or No)</span></h1>
             <p>
@@ -121,7 +120,7 @@ function LandingPage() {
               </div>
               <div>
                 <div style={{ fontSize: '0.65rem', textTransform: 'uppercase', opacity: 0.5 }}>Time</div>
-                <div style={{ fontWeight: 600 }}>6:00 PM — 7:00 PM IST</div>
+                <div style={{ fontWeight: 600 }}>6:00 PM - 7:00 PM IST</div>
               </div>
             </div>
               <div className="hero-meta-item" style={{ marginTop: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
@@ -144,7 +143,7 @@ function LandingPage() {
           <div className="form-card">
             <div className="form-title">
               <h2>Secure Your Seat</h2>
-              <p>Enter your professional details to register for the masterclass.</p>
+              <p>Enter your professional details to register for the webinar.</p>
             </div>
 
             <form onSubmit={handleSubmit}>
@@ -239,13 +238,7 @@ function LandingPage() {
                 </li>
               </ul>
 
-              <div style={{ marginTop: '2.5rem', padding: '1.5rem', background: 'white', borderRadius: '12px', border: '1px dashed var(--rule)' }}>
-                <div style={{ fontSize: '0.7rem', fontWeight: 600, color: 'var(--gold)', marginBottom: '0.5rem', textTransform: 'uppercase' }}>Session Link</div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--ink-soft)', marginBottom: '1rem' }}>Please copy the link to join the webinar.</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.75rem', fontWeight: 600, color: 'var(--navy)' }}>
-                  <Globe size={14} /> G-Meet Platform
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
@@ -300,7 +293,7 @@ function LandingPage() {
 
       <footer style={{ padding: '4rem 2rem', background: '#F8FAFC', borderTop: '1px solid var(--rule)' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div style={{ fontSize: '0.8rem', color: 'var(--ink-muted)' }}>© 2026 Legal Olympiad Academic Portal</div>
+          <div style={{ fontSize: '0.8rem', color: 'var(--ink-muted)' }}>© 2026 Legal Olympiad</div>
           <div style={{ display: 'flex', gap: '2rem' }}>
             <a href="mailto:connect@legalolympiad.com" style={{ fontSize: '0.8rem', color: 'var(--ink-soft)', textDecoration: 'none' }}>connect@legalolympiad.com</a>
           </div>
