@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 import * as XLSX from 'xlsx';
 
-const API_URL = "http://localhost:5000/api/registrations";
+const API_URL = import.meta.env.VITE_API_ADMIN_URL || "http://localhost:5000/api/registrations";
 
 export default function AdminDashboard({ onBack }) {
   const [registrations, setRegistrations] = useState([]);

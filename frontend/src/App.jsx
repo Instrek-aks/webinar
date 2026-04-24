@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import AdminDashboard from './AdminDashboard';
 
 const GMEET_LINK = "https://meet.google.com/kcn-odrt-ean";
-const API_URL = "http://localhost:5000/api/register"; 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api/register"; 
 
 function LandingPage() {
   const [formData, setFormData] = useState({
@@ -69,7 +69,6 @@ function LandingPage() {
             className="hero-text"
           >
             <div className="flex items-center gap-2 text-gold-soft mb-6 text-sm font-mono tracking-widest uppercase">
-              <Sparkles size={16} />
               Masterclass Series 2026
             </div>
             <h1>The Power to Say Yes <span>(or No)</span></h1>
@@ -218,7 +217,7 @@ function LandingPage() {
 
               <div style={{ marginTop: '2.5rem', padding: '1.5rem', background: 'white', borderRadius: '12px', border: '1px dashed var(--rule)' }}>
                 <div style={{ fontSize: '0.7rem', fontWeight: 600, color: 'var(--gold)', marginBottom: '0.5rem', textTransform: 'uppercase' }}>Session Link</div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--ink-soft)', marginBottom: '1rem' }}>Sent to your registered email after enrollment.</div>
+                <div style={{ fontSize: '0.8rem', color: 'var(--ink-soft)', marginBottom: '1rem' }}>Please copy the link to join the webinar.</div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.75rem', fontWeight: 600, color: 'var(--navy)' }}>
                   <Globe size={14} /> G-Meet Platform
                 </div>
