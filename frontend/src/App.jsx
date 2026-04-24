@@ -4,7 +4,7 @@ import {
   ChevronRight, ExternalLink, ShieldCheck, Sparkles, 
   User, Mail, Phone, MapPin, Globe, CheckCircle2 
 } from 'lucide-react';
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import AdminDashboard from './AdminDashboard';
 
@@ -57,6 +57,24 @@ function LandingPage() {
             <div style={{ background: 'var(--navy)', color: 'var(--gold)', width: '32px', height: '32px', display: 'grid', placeItems: 'center', borderRadius: '6px', fontWeight: 'bold' }}>L</div>
             Legal<span>Olympiad</span>
           </a>
+          <Link 
+            to="/admin/legalo/registeredstu"
+            style={{ 
+              background: 'transparent', 
+              color: 'var(--gold)', 
+              border: '1px solid var(--gold)', 
+              padding: '0.5rem 1rem', 
+              borderRadius: '6px', 
+              cursor: 'pointer',
+              fontSize: '0.8rem',
+              textDecoration: 'none',
+              fontWeight: 600,
+              transition: 'all 0.2s'
+            }}
+            className="admin-link-btn"
+          >
+            Admin Portal
+          </Link>
         </div>
       </nav>
 
