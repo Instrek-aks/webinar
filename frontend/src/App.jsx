@@ -77,9 +77,14 @@ function LandingPage() {
       {/* 1. Navbar */}
       <nav className="nav-bar">
         <div className="nav-inner">
-          <a href="/" className="nav-logo">
+          <Link to="/" className="nav-logo">
             <img src="/leagal olympiad white logo.png" alt="Legal Olympiad Logo" style={{ height: '32px', width: 'auto' }} />
-          </a>
+          </Link>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Link to="/admin/legalo/registeredstu" className="enroll-btn-nav">
+              Admin Portal
+            </Link>
+          </div>
         </div>
       </nav>
 
