@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 import * as XLSX from 'xlsx';
 
-const GMEET_LINK = "https://meet.google.com/kcn-odrt-ean";
+const ZOOM_LINK = "https://us06web.zoom.us/j/81768226857?pwd=Fnb8ZqdKJRXbyt89jcJeXaN152mwtm.1";
 const API_BASE_URL = import.meta.env.VITE_API_URL || 
   (window.location.hostname === 'localhost' ? "http://localhost:5000" : window.location.origin);
 

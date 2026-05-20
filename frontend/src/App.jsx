@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Routes, Route, useNavigate, Link } from 'react
 import { motion, AnimatePresence } from 'framer-motion';
 import AdminDashboard from './AdminDashboard';
 
-const GMEET_LINK = "https://meet.google.com/kcn-odrt-ean";
+const ZOOM_LINK = "https://us06web.zoom.us/j/81768226857?pwd=Fnb8ZqdKJRXbyt89jcJeXaN152mwtm.1";
 const API_BASE_URL = import.meta.env.VITE_API_URL || 
   (window.location.hostname === 'localhost' ? "http://localhost:5000" : window.location.origin);
 
@@ -67,7 +67,7 @@ function LandingPage() {
   };
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(GMEET_LINK);
+    navigator.clipboard.writeText(ZOOM_LINK);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -94,9 +94,9 @@ function LandingPage() {
             <div className="flex items-center gap-2 text-gold-soft mb-6 text-sm font-mono tracking-widest uppercase">
               Webinar Series 2026
             </div>
-            <h1>The Power to Say Yes <span>(or No)</span></h1>
+            <h1>Winning Without Trial? <span>The Law of Summary Suits</span></h1>
             <p>
-              Unlock the complexities of <strong>Free Consent in Contracts</strong>. A specialized session built for law students and litigators seeking courtroom clarity.
+              Unlock the strategic mechanics of <strong>Summary Suits under Order XXXVII of the CPC</strong>. A specialized session built for law students and practitioners seeking courtroom clarity on fast-tracking recovery disputes.
             </p>
           </motion.div>
 
@@ -111,7 +111,7 @@ function LandingPage() {
               </div>
               <div>
                 <div style={{ fontSize: '0.65rem', textTransform: 'uppercase', opacity: 0.5 }}>Date</div>
-                <div style={{ fontWeight: 600 }}>25 April 2026</div>
+                <div style={{ fontWeight: 600 }}>23 May 2026</div>
               </div>
             </div>
             <div className="hero-meta-item">
@@ -128,8 +128,8 @@ function LandingPage() {
                   <GraduationCap size={16} />
                 </div>
                 <div>
-                  <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>Asst. Professor Apoorv Gupta</div>
-                  <div style={{ fontSize: '0.65rem', opacity: 0.5 }}>JGLS, SONIPAT</div>
+                  <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>Meenakshi Agarwal</div>
+                  <div style={{ fontSize: '0.65rem', opacity: 0.5 }}>Advocate</div>
                 </div>
               </div>
           </motion.div>
@@ -211,29 +211,29 @@ function LandingPage() {
                 <li className="benefit-item">
                   <CheckCircle2 className="check" size={20} />
                   <div className="benefit-text">
-                    <strong>Courtroom Clarity</strong>
-                    <span>Learn how the law actually works in court sessions.</span>
+                    <strong>Fast-Track Litigation</strong>
+                    <span>Understand how to secure a decree without a full-blown trial.</span>
                   </div>
                 </li>
                 <li className="benefit-item">
                   <CheckCircle2 className="check" size={20} />
                   <div className="benefit-text">
-                    <strong>Practical Insight</strong>
-                    <span>Moving beyond theory into real-world contract nuances.</span>
+                    <strong>Procedural Mechanics</strong>
+                    <span>Master the critical steps and pleadings under Order XXXVII of the CPC.</span>
                   </div>
                 </li>
                 <li className="benefit-item">
                   <CheckCircle2 className="check" size={20} />
                   <div className="benefit-text">
-                    <strong>Competitive Edge</strong>
-                    <span>Advanced knowledge for aspiring litigators.</span>
+                    <strong>Courtroom Strategies</strong>
+                    <span>Learn standard defenses raised by debtors and how to counter them.</span>
                   </div>
                 </li>
                 <li className="benefit-item">
                   <CheckCircle2 className="check" size={20} />
                   <div className="benefit-text">
                     <strong>Expert Guidance</strong>
-                    <span>Led by Asst. Professor Apoorv Gupta from JGLS, Sonipat.</span>
+                    <span>Led by Advocate Meenakshi Agarwal, an experienced practitioner.</span>
                   </div>
                 </li>
               </ul>
@@ -270,12 +270,22 @@ function LandingPage() {
               </p>
               
               <div style={{ background: '#F8FAFC', padding: '1.25rem', borderRadius: '16px', textAlign: 'left', marginBottom: '2.5rem' }}>
-                <div style={{ fontSize: '0.65rem', fontWeight: 600, color: 'var(--ink-muted)', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Joining Link</div>
-                <div className="copy-link-wrapper">
-                  <div className="link-text-box">{GMEET_LINK}</div>
+                <div style={{ fontSize: '0.65rem', fontWeight: 600, color: 'var(--ink-muted)', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Zoom Joining Link</div>
+                <div className="copy-link-wrapper" style={{ marginBottom: '1rem' }}>
+                  <div className="link-text-box" style={{ fontSize: '0.8rem', wordBreak: 'break-all' }}>{ZOOM_LINK}</div>
                   <button onClick={handleCopy} className="copy-btn-modal">
                     {copied ? <Check size={18} className="text-green-600" /> : <Copy size={18} />}
                   </button>
+                </div>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', borderTop: '1px solid rgba(0,0,0,0.06)', paddingTop: '1rem' }}>
+                  <div>
+                    <div style={{ fontSize: '0.65rem', fontWeight: 600, color: 'var(--ink-muted)', textTransform: 'uppercase' }}>Meeting ID</div>
+                    <div style={{ fontWeight: 600, color: 'var(--navy)', fontSize: '0.9rem' }}>817 6822 6857</div>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.65rem', fontWeight: 600, color: 'var(--ink-muted)', textTransform: 'uppercase' }}>Passcode</div>
+                    <div style={{ fontWeight: 600, color: 'var(--navy)', fontSize: '0.9rem' }}>183408</div>
+                  </div>
                 </div>
               </div>
 
