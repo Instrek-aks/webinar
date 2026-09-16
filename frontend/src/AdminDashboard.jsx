@@ -40,11 +40,7 @@ export default function AdminDashboard({ onBack }) {
   const handleExport = () => {
     const worksheet = XLSX.utils.json_to_sheet(registrations.map(r => ({
       Name: r.name,
-      Email: r.email,
-      Contact: r.contact,
-      College: r.college,
-      Pincode: r.pincode,
-      'Registration Date': new Date(r.timestamp).toLocaleString()
+      Email: r.email
     })));
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, "Students");
@@ -53,8 +49,7 @@ export default function AdminDashboard({ onBack }) {
 
   const filteredRegistrations = registrations.filter(r => 
     r.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    r.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    r.college.toLowerCase().includes(searchTerm.toLowerCase())
+    r.email.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   if (loading) {
@@ -94,7 +89,7 @@ export default function AdminDashboard({ onBack }) {
           <Search className="search-icon" size={20} />
           <input 
             type="text" 
-            placeholder="Search by name, email, or college..." 
+            placeholder="Search by name or email..." 
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -104,10 +99,8 @@ export default function AdminDashboard({ onBack }) {
           <table className="admin-table">
             <thead>
               <tr>
-                <th>Student Details</th>
-                <th>Academic Info</th>
-                <th>Location</th>
-                <th>Registration Date</th>
+                <th>Name</th>
+                <th>Email</th>
               </tr>
             </thead>
             <tbody>
@@ -116,38 +109,17 @@ export default function AdminDashboard({ onBack }) {
                   <td>
                     <div className="student-cell">
                       <div className="avatar">{reg.name.charAt(0)}</div>
-                      <div>
-                        <div className="name">{reg.name}</div>
-                        <div className="email"><Mail size={12} /> {reg.email}</div>
-                        <div className="contact"><Phone size={12} /> {reg.contact}</div>
-                      </div>
+                      <div className="name">{reg.name}</div>
                     </div>
                   </td>
                   <td>
-                    <div className="academic-info">
-                      <div className="college"><Globe size={14} /> {reg.college}</div>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="location-info">
-                      <MapPin size={14} /> {reg.pincode}
-                    </div>
-                  </td>
-                  <td>
-                    <div className="date-info">
-                      <Calendar size={14} />
-                      {new Date(reg.timestamp).toLocaleDateString('en-IN', {
-                        day: '2-digit',
-                        month: 'short',
-                        year: 'numeric'
-                      })}
-                    </div>
+                    <div className="email"><Mail size={12} /> {reg.email}</div>
                   </td>
                 </tr>
               ))}
               {filteredRegistrations.length === 0 && (
                 <tr>
-                  <td colSpan="4" className="empty-state">
+                  <td colSpan="2" className="empty-state">
                     No registrations found matching your search.
                   </td>
                 </tr>

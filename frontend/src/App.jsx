@@ -16,7 +16,7 @@ const API_URL = API_BASE_URL.endsWith('/api/register') ? API_BASE_URL : `${API_B
 
 function LandingPage() {
   const [formData, setFormData] = useState({
-    name: '', college: '', pincode: '', email: '', contact: ''
+    name: '', email: ''
   });
   const [status, setStatus] = useState('idle'); 
   const [errorMessage, setErrorMessage] = useState('');
@@ -55,7 +55,8 @@ function LandingPage() {
           setStatus('success');
           return;
         }
-        throw new Error(data.message || 'Failed to register');
+        console.error("Backend Error Data:", data);
+        throw new Error(data.message + (data.error ? " - " + data.error : "") || 'Failed to register');
       }
       
       setStatus('success');
@@ -155,30 +156,7 @@ function LandingPage() {
                 </div>
               </div>
 
-              <div className="form-group">
-                <label>College / University</label>
-                <div className="input-with-icon">
-                  <Globe className="input-icon" size={18} />
-                  <input required type="text" placeholder="National Law School" value={formData.college} onChange={e => setFormData({...formData, college: e.target.value})} />
-                </div>
-              </div>
 
-              <div className="field-grid">
-                <div className="form-group">
-                  <label>Pincode</label>
-                  <div className="input-with-icon">
-                    <MapPin className="input-icon" size={18} />
-                    <input required type="text" pattern="[0-9]{6}" placeholder="6 digits" value={formData.pincode} onChange={e => setFormData({...formData, pincode: e.target.value})} />
-                  </div>
-                </div>
-                <div className="form-group">
-                  <label>Contact</label>
-                  <div className="input-with-icon">
-                    <Phone className="input-icon" size={18} />
-                    <input required type="tel" placeholder="Mobile number" value={formData.contact} onChange={e => setFormData({...formData, contact: e.target.value})} />
-                  </div>
-                </div>
-              </div>
 
               <div className="form-group" style={{ marginBottom: '2.5rem' }}>
                 <label>Email ID</label>
