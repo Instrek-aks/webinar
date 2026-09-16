@@ -250,12 +250,12 @@ function LandingPage() {
               <div style={{ background: 'var(--ivory)', padding: '1.25rem', borderRadius: '16px', textAlign: 'left', marginBottom: '2.5rem', border: '1px solid var(--rule)' }}>
                 <div style={{ fontSize: '0.65rem', fontWeight: 600, color: 'var(--ink-muted)', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Zoom Joining Link</div>
                 <div className="copy-link-wrapper" style={{ marginBottom: '1rem' }}>
-                  <div className="link-text-box" style={{ fontSize: '0.8rem', wordBreak: 'break-all' }}>{ZOOM_LINK}</div>
+                  <div className="link-text-box">{ZOOM_LINK}</div>
                   <button onClick={handleCopy} className="copy-btn-modal">
                     {copied ? <Check size={18} className="text-green-600" /> : <Copy size={18} />}
                   </button>
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', borderTop: '1px solid var(--rule)', paddingTop: '1rem' }}>
+                <div className="meeting-details-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', borderTop: '1px solid var(--rule)', paddingTop: '1rem' }}>
                   <div>
                     <div style={{ fontSize: '0.65rem', fontWeight: 600, color: 'var(--ink-muted)', textTransform: 'uppercase' }}>Meeting ID</div>
                     <div style={{ fontWeight: 600, color: 'var(--navy)', fontSize: '0.9rem' }}>873 596 4512</div>

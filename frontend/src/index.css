@@ -651,6 +651,7 @@ input:focus {
 
 .link-text-box {
   flex-grow: 1;
+  min-width: 0; /* Fixes flexbox ellipsis bug */
   background: white;
   padding: 0.75rem;
   border: 1px solid var(--rule);
@@ -662,6 +663,7 @@ input:focus {
 }
 
 .copy-btn-modal {
+  flex-shrink: 0;
   padding: 0 1rem;
   background: white;
   border: 1px solid var(--rule);
@@ -708,17 +710,24 @@ input:focus {
   }
   
   .copy-link-wrapper {
-    flex-direction: row; /* Keep in same row */
+    flex-direction: row; 
     align-items: stretch;
   }
   
   .link-text-box {
-    font-size: 0.7rem;
-    padding: 0.5rem;
-    white-space: nowrap; /* Prevent wrapping to keep row height consistent */
+    font-size: 0.75rem;
+    padding: 0.75rem;
   }
   
   .copy-btn-modal {
-    padding: 0.75rem;
+    padding: 0 0.75rem;
+  }
+}
+
+/* Fix Meeting ID / Passcode grid on mobile */
+@media (max-width: 480px) {
+  .meeting-details-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
   }
 }
