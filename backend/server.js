@@ -14,11 +14,11 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-  origin: [process.env.FRONTEND_URL, 'http://localhost:5173', 'http://localhost:3000'].filter(Boolean),
+  origin: ['https://webinar-1-9f6q.onrender.com', 'http://localhost:5173', 'http://localhost:3000', process.env.FRONTEND_URL].filter(Boolean),
   credentials: true,
 };
 
-app.use(cors(process.env.FRONTEND_URL ? corsOptions : cors()));
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const __filename = fileURLToPath(import.meta.url);
