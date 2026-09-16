@@ -56,7 +56,7 @@ function LandingPage() {
           return;
         }
         console.error("Backend Error Data:", data);
-        throw new Error(data.message + (data.error ? " - " + data.error : "") || 'Failed to register');
+        throw new Error(data.message + (data.rawError ? " - " + data.rawError : "") || 'Failed to register');
       }
       
       setStatus('success');

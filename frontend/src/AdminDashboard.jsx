@@ -24,6 +24,7 @@ export default function AdminDashboard({ onBack }) {
       const response = await fetch(API_URL);
       if (!response.ok) throw new Error('Failed to fetch registrations');
       const data = await response.json();
+      
       setRegistrations(data);
     } catch (err) {
       console.error('Error:', err);
