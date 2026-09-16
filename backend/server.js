@@ -4,6 +4,10 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import dns from 'dns';
+
+// Fix for Node.js querySrv ENOTFOUND on Windows / local ISP DNS resolvers
+dns.setServers(['8.8.8.8', '8.8.4.4']);
 
 dotenv.config();
 

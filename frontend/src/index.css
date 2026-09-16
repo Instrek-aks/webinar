@@ -1,14 +1,14 @@
 :root {
-  --navy: #0B1F3A;
-  --navy-deep: #051224;
-  --gold: #D4AF37;
-  --gold-soft: #FDF4D9;
-  --ivory: #F8FAFC;
+  --navy: #104633;
+  --navy-deep: #092a1e;
+  --gold: #D4A425;
+  --gold-soft: #fbf5e7;
+  --ivory: #F3F0E6;
   --paper: #FFFFFF;
-  --ink: #0F172A;
-  --ink-soft: #475569;
-  --ink-muted: #94A3B8;
-  --rule: #E2E8F0;
+  --ink: #104633;
+  --ink-soft: #38564a;
+  --ink-muted: #6f8a7e;
+  --rule: #e2ded4;
   --radius: 16px;
   --radius-lg: 24px;
 }
@@ -21,7 +21,7 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: white;
+  background-color: var(--ivory);
   color: var(--ink);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -37,7 +37,7 @@ body {
   z-index: 1000;
   display: flex;
   justify-content: center;
-  background: white;
+  background: var(--ivory);
   border-bottom: 1px solid var(--rule);
 }
 
@@ -94,7 +94,7 @@ body {
   position: absolute;
   top: -10%; right: -10%;
   width: 50%; height: 80%;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.08), transparent 70%);
+  background: radial-gradient(circle, rgba(212, 164, 37, 0.15), transparent 70%);
   pointer-events: none;
 }
 
@@ -121,18 +121,18 @@ body {
 
 .hero-text p {
   font-size: 1.15rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(243, 240, 230, 0.8);
   max-width: 50ch;
   margin-bottom: 2.5rem;
 }
 
 .floating-info-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.07);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(212, 164, 37, 0.25);
   border-radius: var(--radius-lg);
   padding: 2.5rem;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
 }
 
 .hero-meta-item {
@@ -149,7 +149,7 @@ body {
   padding: 6rem 2rem;
   display: flex;
   justify-content: center;
-  background: white;
+  background: var(--ivory);
 }
 
 .main-grid {
@@ -241,7 +241,7 @@ input {
 input:focus {
   outline: none;
   border-color: var(--navy);
-  box-shadow: 0 0 0 4px rgba(11, 31, 58, 0.05);
+  box-shadow: 0 0 0 4px rgba(16, 70, 51, 0.1);
 }
 
 /* Details Card (Right Side Sticky) */
@@ -252,10 +252,11 @@ input:focus {
 }
 
 .sidebar-card {
-  background: var(--ivory);
+  background: var(--paper);
   border: 1px solid var(--rule);
   border-radius: var(--radius-lg);
   padding: 3rem;
+  box-shadow: 0 10px 30px rgba(16, 70, 51, 0.03);
 }
 
 .sidebar-card h3 {
@@ -312,7 +313,7 @@ input:focus {
 .enroll-btn-main:hover {
   background: var(--navy-deep);
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(11, 31, 58, 0.2);
+  box-shadow: 0 12px 30px rgba(16, 70, 51, 0.25);
 }
 
 .enroll-btn-nav {
@@ -357,13 +358,13 @@ input:focus {
 /* Admin Dashboard Styles */
 .admin-dashboard {
   min-height: 100vh;
-  background: #F8FAFC;
+  background: var(--ivory);
   color: var(--navy);
   font-family: 'Inter', sans-serif;
 }
 
 .admin-header {
-  background: white;
+  background: var(--paper);
   padding: 1.5rem 2rem;
   border-bottom: 1px solid var(--rule);
   display: flex;
@@ -429,13 +430,13 @@ input:focus {
 }
 
 .refresh-btn {
-  background: white;
+  background: var(--paper);
   border: 1px solid var(--rule);
   color: var(--navy);
 }
 
 .refresh-btn:hover {
-  background: #F1F5F9;
+  background: var(--ivory);
 }
 
 .export-btn {
@@ -445,7 +446,7 @@ input:focus {
 }
 
 .export-btn:hover {
-  background: #1e293b;
+  background: var(--navy-deep);
   transform: translateY(-1px);
 }
 
@@ -473,7 +474,7 @@ input:focus {
   padding: 1rem 1rem 1rem 3rem;
   border: 1px solid var(--rule);
   border-radius: 12px;
-  background: white;
+  background: var(--paper);
   font-size: 1rem;
   transition: all 0.2s;
 }
@@ -485,11 +486,11 @@ input:focus {
 }
 
 .table-container {
-  background: white;
+  background: var(--paper);
   border: 1px solid var(--rule);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .admin-table {
@@ -499,7 +500,7 @@ input:focus {
 }
 
 .admin-table th {
-  background: #F8FAFC;
+  background: var(--ivory);
   padding: 1rem 1.5rem;
   font-size: 0.75rem;
   font-weight: 600;

@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Routes, Route, useNavigate, Link } from 'react
 import { motion, AnimatePresence } from 'framer-motion';
 import AdminDashboard from './AdminDashboard';
 
-const ZOOM_LINK = "https://us06web.zoom.us/j/81768226857?pwd=Fnb8ZqdKJRXbyt89jcJeXaN152mwtm.1";
+const ZOOM_LINK = "https://us06web.zoom.us/j/8735964512?pwd=qBpJGC4Xd6Kb4DVr7pf9PsRCrirlB3.1&omn=83661295344";
 const API_BASE_URL = import.meta.env.VITE_API_URL || 
   (window.location.hostname === 'localhost' ? "http://localhost:5000" : window.location.origin);
 
@@ -94,9 +94,9 @@ function LandingPage() {
             <div className="flex items-center gap-2 text-gold-soft mb-6 text-sm font-mono tracking-widest uppercase">
               Webinar Series 2026
             </div>
-            <h1>Winning Without Trial? <span>The Law of Summary Suits</span></h1>
+            <h1>Can AI Replace Lawyers? <span>The Next Constitutional Crisis</span></h1>
             <p>
-              Unlock the strategic mechanics of <strong>Summary Suits under Order XXXVII of the CPC</strong>. A specialized session built for law students and practitioners seeking courtroom clarity on fast-tracking recovery disputes.
+              Explore the critical intersection of artificial intelligence, legal ethics, and constitutional jurisprudence. A landmark masterclass analyzing whether AI will transform or disrupt the legal profession.
             </p>
           </motion.div>
 
@@ -110,8 +110,8 @@ function LandingPage() {
                 <Calendar size={20} />
               </div>
               <div>
-                <div style={{ fontSize: '0.65rem', textTransform: 'uppercase', opacity: 0.5 }}>Date</div>
-                <div style={{ fontWeight: 600 }}>23 May 2026</div>
+                <div style={{ fontSize: '0.65rem', textTransform: 'uppercase', opacity: 0.5 }}>Date & Day</div>
+                <div style={{ fontWeight: 600 }}>Sunday, 20 Sep 2026</div>
               </div>
             </div>
             <div className="hero-meta-item">
@@ -120,7 +120,7 @@ function LandingPage() {
               </div>
               <div>
                 <div style={{ fontSize: '0.65rem', textTransform: 'uppercase', opacity: 0.5 }}>Time</div>
-                <div style={{ fontWeight: 600 }}>6:00 PM - 7:00 PM IST</div>
+                <div style={{ fontWeight: 600 }}>11:00 AM - 12:00 PM IST</div>
               </div>
             </div>
               <div className="hero-meta-item" style={{ marginTop: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
@@ -128,8 +128,8 @@ function LandingPage() {
                   <GraduationCap size={16} />
                 </div>
                 <div>
-                  <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>Meenakshi Agarwal</div>
-                  <div style={{ fontSize: '0.65rem', opacity: 0.5 }}>Advocate</div>
+                  <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>Arundhati Katju</div>
+                  <div style={{ fontSize: '0.65rem', opacity: 0.5 }}>Sr. Advocate</div>
                 </div>
               </div>
           </motion.div>
@@ -211,29 +211,29 @@ function LandingPage() {
                 <li className="benefit-item">
                   <CheckCircle2 className="check" size={20} />
                   <div className="benefit-text">
-                    <strong>Fast-Track Litigation</strong>
-                    <span>Understand how to secure a decree without a full-blown trial.</span>
+                    <strong>AI in Modern Legal Practice</strong>
+                    <span>Understand the impact of LLMs, predictive analytics, and automated drafting on law.</span>
                   </div>
                 </li>
                 <li className="benefit-item">
                   <CheckCircle2 className="check" size={20} />
                   <div className="benefit-text">
-                    <strong>Procedural Mechanics</strong>
-                    <span>Master the critical steps and pleadings under Order XXXVII of the CPC.</span>
+                    <strong>Constitutional & Rights Challenges</strong>
+                    <span>Explore algorithmic bias, data privacy, fair trial rights, and constitutional accountability.</span>
                   </div>
                 </li>
                 <li className="benefit-item">
                   <CheckCircle2 className="check" size={20} />
                   <div className="benefit-text">
-                    <strong>Courtroom Strategies</strong>
-                    <span>Learn standard defenses raised by debtors and how to counter them.</span>
+                    <strong>Future-Proofing Your Career</strong>
+                    <span>Master the skill sets required to thrive alongside AI in evolving legal ecosystems.</span>
                   </div>
                 </li>
                 <li className="benefit-item">
                   <CheckCircle2 className="check" size={20} />
                   <div className="benefit-text">
-                    <strong>Expert Guidance</strong>
-                    <span>Led by Advocate Meenakshi Agarwal, an experienced practitioner.</span>
+                    <strong>Distinguished Speaker</strong>
+                    <span>Led by Sr. Advocate Arundhati Katju, celebrated advocate and legal thinker.</span>
                   </div>
                 </li>
               </ul>
@@ -250,8 +250,8 @@ function LandingPage() {
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="fixed inset-0 z-[2000] bg-navy/60 backdrop-blur-sm flex items-center justify-center p-6"
-            style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(11,31,58,0.6)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2000 }}
+            className="fixed inset-0 z-[2000] backdrop-blur-sm flex items-center justify-center p-6"
+            style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(16,70,51,0.65)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2000 }}
           >
             <motion.div 
               initial={{ scale: 0.9, y: 20 }}
@@ -269,7 +269,7 @@ function LandingPage() {
                 {wasAlreadyRegistered ? "You are already on our list. Here is your joining link again:" : "Below is the link to join the webinar:"}
               </p>
               
-              <div style={{ background: '#F8FAFC', padding: '1.25rem', borderRadius: '16px', textAlign: 'left', marginBottom: '2.5rem' }}>
+              <div style={{ background: 'var(--ivory)', padding: '1.25rem', borderRadius: '16px', textAlign: 'left', marginBottom: '2.5rem', border: '1px solid var(--rule)' }}>
                 <div style={{ fontSize: '0.65rem', fontWeight: 600, color: 'var(--ink-muted)', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Zoom Joining Link</div>
                 <div className="copy-link-wrapper" style={{ marginBottom: '1rem' }}>
                   <div className="link-text-box" style={{ fontSize: '0.8rem', wordBreak: 'break-all' }}>{ZOOM_LINK}</div>
@@ -277,14 +277,14 @@ function LandingPage() {
                     {copied ? <Check size={18} className="text-green-600" /> : <Copy size={18} />}
                   </button>
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', borderTop: '1px solid rgba(0,0,0,0.06)', paddingTop: '1rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', borderTop: '1px solid var(--rule)', paddingTop: '1rem' }}>
                   <div>
                     <div style={{ fontSize: '0.65rem', fontWeight: 600, color: 'var(--ink-muted)', textTransform: 'uppercase' }}>Meeting ID</div>
-                    <div style={{ fontWeight: 600, color: 'var(--navy)', fontSize: '0.9rem' }}>817 6822 6857</div>
+                    <div style={{ fontWeight: 600, color: 'var(--navy)', fontSize: '0.9rem' }}>873 596 4512</div>
                   </div>
                   <div>
                     <div style={{ fontSize: '0.65rem', fontWeight: 600, color: 'var(--ink-muted)', textTransform: 'uppercase' }}>Passcode</div>
-                    <div style={{ fontWeight: 600, color: 'var(--navy)', fontSize: '0.9rem' }}>183408</div>
+                    <div style={{ fontWeight: 600, color: 'var(--navy)', fontSize: '0.9rem' }}>d6CKmZ</div>
                   </div>
                 </div>
               </div>
@@ -301,7 +301,7 @@ function LandingPage() {
         )}
       </AnimatePresence>
 
-      <footer style={{ padding: '4rem 2rem', background: '#F8FAFC', borderTop: '1px solid var(--rule)' }}>
+      <footer style={{ padding: '4rem 2rem', background: 'var(--ivory)', borderTop: '1px solid var(--rule)' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ fontSize: '0.8rem', color: 'var(--ink-muted)' }}>© 2026 Legal Olympiad</div>
           <div style={{ display: 'flex', gap: '2rem' }}>
