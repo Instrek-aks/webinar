@@ -43,39 +43,43 @@ mongoose.connect(mongoURI)
 // Schema
 const registrationSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  college: { type: String, required: true },
-  pincode: { type: String, required: true },
   email: { type: String, required: true, unique: true }, // Added unique constraint
-  contact: { type: String, required: true },
   timestamp: { type: Date, default: Date.now }
 });
 
 const Registration = mongoose.model('Registration', registrationSchema);
 
+import { sendWebinarConfirmationEmail } from './emailService.js';
+
 // API Routes
 app.post('/api/register', async (req, res) => {
   try {
-    const { name, college, pincode, email, contact } = req.body;
+    const { name, email } = req.body;
     
     // Check if email already exists
     const existingRegistration = await Registration.findOne({ email });
     if (existingRegistration) {
+      // Re-send email in background for user's convenience if already registered
+      sendWebinarConfirmationEmail({ name: existingRegistration.name, email }).catch(err => console.error('Email retry error:', err));
       return res.status(400).json({ message: 'This email is already registered for the webinar.' });
     }
 
     const newRegistration = new Registration({
       name,
-      college,
-      pincode,
-      email,
-      contact
+      email
     });
 
     await newRegistration.save();
+
+    // Trigger confirmation email asynchronously (does not block HTTP response)
+    sendWebinarConfirmationEmail({ name, email }).catch(err => {
+      console.error('Error sending confirmation email:', err);
+    });
+
     res.status(201).json({ message: 'Registration successful' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Error saving registration' });
+    res.status(500).json({ message: 'Error saving registration', error: error.message, stack: error.stack });
   }
 });
 
