@@ -144,7 +144,7 @@ function LandingPage() {
           <div className="form-card">
             <div className="form-title">
               <h2>Secure Your Seat</h2>
-              <p>Enter your professional details to register for the webinar.</p>
+              <p>Enter your details to register for the webinar.</p>
             </div>
 
             <form onSubmit={handleSubmit}>
@@ -162,7 +162,7 @@ function LandingPage() {
                 <label>Email ID</label>
                 <div className="input-with-icon">
                   <Mail className="input-icon" size={18} />
-                  <input required type="email" placeholder="name@university.edu" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} />
+                  <input required type="email" placeholder="name@example.com" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} />
                 </div>
               </div>
 
