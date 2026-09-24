@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-const ZOOM_LINK = "https://us06web.zoom.us/j/89081201247?pwd=pWpybefqajKEYypSXjiFvz31M2vgrb.1";
+const ZOOM_LINK = "https://us06web.zoom.us/j/89081201247";
 const MEETING_ID = "890 8120 1247";
 const PASSCODE = "310555";
 
