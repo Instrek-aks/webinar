@@ -1,5 +1,9 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import dns from 'dns';
+
+// Fix for Node.js querySrv ENOTFOUND on Windows / local ISP DNS resolvers
+dns.setServers(['8.8.8.8', '8.8.4.4']);
 
 // Load environmental variables from .env
 dotenv.config();

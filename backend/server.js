@@ -37,7 +37,15 @@ if (!mongoURI) {
 }
 
 mongoose.connect(mongoURI)
-  .then(() => console.log('✅ Connected to MongoDB'))
+  .then(async () => {
+    console.log('✅ Connected to MongoDB');
+    try {
+      const del = await Registration.deleteMany({});
+      console.log(`🗑️ Database reset for Webinar #009: Cleared ${del.deletedCount} previous registration(s).`);
+    } catch (e) {
+      console.error('Error clearing previous registrations:', e);
+    }
+  })
   .catch(err => console.error('❌ MongoDB connection error:', err));
 
 // Schema
@@ -90,6 +98,17 @@ app.get('/api/registrations', async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Error fetching registrations' });
+  }
+});
+
+app.delete('/api/registrations', async (req, res) => {
+  try {
+    const result = await Registration.deleteMany({});
+    console.log(`🗑️ Cleared ${result.deletedCount} student registrations from database.`);
+    res.status(200).json({ message: `Successfully deleted ${result.deletedCount} registrations.`, deletedCount: result.deletedCount });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error clearing registrations', error: String(error) });
   }
 });
 

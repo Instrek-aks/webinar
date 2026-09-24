@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { 
   Download, Search, Users, Calendar, 
   Mail, Phone, Globe, MapPin, ArrowLeft,
-  Loader2, RefreshCw
+  Loader2, RefreshCw, Trash2
 } from 'lucide-react';
 import * as XLSX from 'xlsx';
 
-const ZOOM_LINK = "https://us06web.zoom.us/j/8735964512?pwd=qBpJGC4Xd6Kb4DVr7pf9PsRCrirlB3.1&omn=83661295344";
+const ZOOM_LINK = "https://us06web.zoom.us/j/89081201247?pwd=pWpybefqajKEYypSXjiFvz31M2vgrb.1";
 const API_BASE_URL = import.meta.env.VITE_API_URL || 
   (window.location.hostname === 'localhost' ? "http://localhost:5000" : window.location.origin);
 
@@ -17,6 +17,7 @@ export default function AdminDashboard({ onBack }) {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [refreshing, setRefreshing] = useState(false);
+  const [clearing, setClearing] = useState(false);
 
   const fetchRegistrations = async () => {
     try {
@@ -31,6 +32,24 @@ export default function AdminDashboard({ onBack }) {
     } finally {
       setLoading(false);
       setRefreshing(false);
+    }
+  };
+
+  const handleClearAll = async () => {
+    if (!window.confirm('⚠️ Are you sure you want to permanently delete ALL student registrations?')) {
+      return;
+    }
+    try {
+      setClearing(true);
+      const response = await fetch(API_URL, { method: 'DELETE' });
+      if (!response.ok) throw new Error('Failed to delete registrations');
+      const data = await response.json();
+      alert(data.message || 'All student registrations removed successfully.');
+      fetchRegistrations();
+    } catch (err) {
+      alert('Error clearing data: ' + err.message);
+    } finally {
+      setClearing(false);
     }
   };
 
@@ -75,12 +94,22 @@ export default function AdminDashboard({ onBack }) {
           </div>
         </div>
         <div className="admin-header-actions">
-          <button onClick={fetchRegistrations} disabled={refreshing} className="refresh-btn">
+          <button onClick={fetchRegistrations} disabled={refreshing} className="refresh-btn" title="Refresh">
             <RefreshCw size={18} className={refreshing ? 'animate-spin' : ''} />
           </button>
           <button onClick={handleExport} className="export-btn">
             <Download size={18} />
             Export to Excel
+          </button>
+          <button 
+            onClick={handleClearAll} 
+            disabled={clearing || registrations.length === 0} 
+            className="export-btn"
+            style={{ background: '#e11d48', color: '#ffffff' }}
+            title="Delete all registrations"
+          >
+            <Trash2 size={18} />
+            {clearing ? 'Clearing...' : 'Clear All Data'}
           </button>
         </div>
       </header>

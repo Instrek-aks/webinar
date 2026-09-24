@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Routes, Route, useNavigate, Link } from 'react
 import { motion, AnimatePresence } from 'framer-motion';
 import AdminDashboard from './AdminDashboard';
 
-const ZOOM_LINK = "https://us06web.zoom.us/j/8735964512?pwd=qBpJGC4Xd6Kb4DVr7pf9PsRCrirlB3.1&omn=83661295344";
+const ZOOM_LINK = "https://us06web.zoom.us/j/89081201247?pwd=pWpybefqajKEYypSXjiFvz31M2vgrb.1";
 const API_BASE_URL = import.meta.env.VITE_API_URL || 
   (window.location.hostname === 'localhost' ? "http://localhost:5000" : window.location.origin);
 
@@ -77,9 +77,29 @@ function LandingPage() {
     <>
       {/* 1. Navbar */}
       <nav className="nav-bar">
-        <div className="nav-inner">
+        <div className="nav-inner" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', maxWidth: '1200px', margin: '0 auto' }}>
           <a href="/" className="nav-logo">
             <img src="/leagal olympiad white logo.png" alt="Legal Olympiad Logo" style={{ height: '32px', width: 'auto' }} />
+          </a>
+          <a 
+            href="https://legalolympiad.com" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{ 
+              fontSize: '0.85rem', 
+              color: 'var(--gold-soft)', 
+              textDecoration: 'none', 
+              fontWeight: 600,
+              padding: '6px 14px',
+              border: '1px solid rgba(212,175,55,0.4)',
+              borderRadius: '20px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              transition: 'all 0.2s ease'
+            }}
+          >
+            Know More About Us <ExternalLink size={14} />
           </a>
         </div>
       </nav>
@@ -93,12 +113,15 @@ function LandingPage() {
             className="hero-text"
           >
             <div className="flex items-center gap-2 text-gold-soft mb-6 text-sm font-mono tracking-widest uppercase">
-              Webinar Series 2026
+              Webinar #009 • Legal Olympiad
             </div>
-            <h1>Can AI Replace Lawyers? <span>The Next Constitutional Crisis</span></h1>
+            <h1>UAPA and the Constitution: <span>National Security vs Individual Liberty</span></h1>
             <p>
-              Explore the critical intersection of artificial intelligence, legal ethics, and constitutional jurisprudence. A landmark masterclass analyzing whether AI will transform or disrupt the legal profession.
+              An incisive legal masterclass exploring the Unlawful Activities (Prevention) Act, statutory bail restrictions, constitutional protections, and the delicate balance between state security and fundamental rights.
             </p>
+            <div style={{ marginTop: '1.25rem', display: 'inline-block', padding: '0.5rem 1rem', background: 'rgba(212,175,55,0.12)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: '8px', color: 'var(--gold)', fontWeight: 600, fontSize: '0.85rem' }}>
+              ⚡ Prepare to Compete. Prepare to Win. THIS SUNDAY!
+            </div>
           </motion.div>
 
           <motion.div 
@@ -112,7 +135,7 @@ function LandingPage() {
               </div>
               <div>
                 <div style={{ fontSize: '0.65rem', textTransform: 'uppercase', opacity: 0.5 }}>Date & Day</div>
-                <div style={{ fontWeight: 600 }}>Sunday, 20 Sep 2026</div>
+                <div style={{ fontWeight: 600 }}>Sunday, 27th September, 2026</div>
               </div>
             </div>
             <div className="hero-meta-item">
@@ -121,7 +144,7 @@ function LandingPage() {
               </div>
               <div>
                 <div style={{ fontSize: '0.65rem', textTransform: 'uppercase', opacity: 0.5 }}>Time</div>
-                <div style={{ fontWeight: 600 }}>11:00 AM - 12:00 PM IST</div>
+                <div style={{ fontWeight: 600 }}>4:00 PM – 5:00 PM IST</div>
               </div>
             </div>
               <div className="hero-meta-item" style={{ marginTop: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
@@ -129,8 +152,9 @@ function LandingPage() {
                   <GraduationCap size={16} />
                 </div>
                 <div>
-                  <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>Arundhati Katju</div>
-                  <div style={{ fontSize: '0.65rem', opacity: 0.5 }}>Sr. Advocate</div>
+                  <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>Akhand Pratap Singh</div>
+                  <div style={{ fontSize: '0.65rem', opacity: 0.7 }}>Special Public Prosecutor – Delhi Police</div>
+                  <div style={{ fontSize: '0.65rem', opacity: 0.5 }}>Experienced Advocate</div>
                 </div>
               </div>
           </motion.div>
@@ -144,7 +168,7 @@ function LandingPage() {
           <div className="form-card">
             <div className="form-title">
               <h2>Secure Your Seat</h2>
-              <p>Enter your details to register for the webinar.</p>
+              <p>Enter your details to register for Webinar #009.</p>
             </div>
 
             <form onSubmit={handleSubmit}>
@@ -189,29 +213,29 @@ function LandingPage() {
                 <li className="benefit-item">
                   <CheckCircle2 className="check" size={20} />
                   <div className="benefit-text">
-                    <strong>AI in Modern Legal Practice</strong>
-                    <span>Understand the impact of LLMs, predictive analytics, and automated drafting on law.</span>
+                    <strong>Statutory Framework of UAPA</strong>
+                    <span>Examine key provisions, scheduled offences, and procedural mechanisms under UAPA.</span>
                   </div>
                 </li>
                 <li className="benefit-item">
                   <CheckCircle2 className="check" size={20} />
                   <div className="benefit-text">
-                    <strong>Constitutional & Rights Challenges</strong>
-                    <span>Explore algorithmic bias, data privacy, fair trial rights, and constitutional accountability.</span>
+                    <strong>Constitutional Safeguards & Liberty</strong>
+                    <span>Deep dive into Article 21, stringent bail jurisprudence (Section 43D(5)), and constitutional guarantees.</span>
                   </div>
                 </li>
                 <li className="benefit-item">
                   <CheckCircle2 className="check" size={20} />
                   <div className="benefit-text">
-                    <strong>Future-Proofing Your Career</strong>
-                    <span>Master the skill sets required to thrive alongside AI in evolving legal ecosystems.</span>
+                    <strong>National Security vs Individual Rights</strong>
+                    <span>Evaluating judicial precedents and the real-world balance between state security and civil liberties.</span>
                   </div>
                 </li>
                 <li className="benefit-item">
                   <CheckCircle2 className="check" size={20} />
                   <div className="benefit-text">
                     <strong>Distinguished Speaker</strong>
-                    <span>Led by Sr. Advocate Arundhati Katju, celebrated advocate and legal thinker.</span>
+                    <span>Led by Akhand Pratap Singh, Special Public Prosecutor – Delhi Police & Experienced Advocate.</span>
                   </div>
                 </li>
               </ul>
@@ -258,11 +282,11 @@ function LandingPage() {
                 <div className="meeting-details-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', borderTop: '1px solid var(--rule)', paddingTop: '1rem' }}>
                   <div>
                     <div style={{ fontSize: '0.65rem', fontWeight: 600, color: 'var(--ink-muted)', textTransform: 'uppercase' }}>Meeting ID</div>
-                    <div style={{ fontWeight: 600, color: 'var(--navy)', fontSize: '0.9rem' }}>873 596 4512</div>
+                    <div style={{ fontWeight: 600, color: 'var(--navy)', fontSize: '0.9rem' }}>890 8120 1247</div>
                   </div>
                   <div>
                     <div style={{ fontSize: '0.65rem', fontWeight: 600, color: 'var(--ink-muted)', textTransform: 'uppercase' }}>Passcode</div>
-                    <div style={{ fontWeight: 600, color: 'var(--navy)', fontSize: '0.9rem' }}>d6CKmZ</div>
+                    <div style={{ fontWeight: 600, color: 'var(--navy)', fontSize: '0.9rem' }}>310555</div>
                   </div>
                 </div>
               </div>
@@ -280,10 +304,20 @@ function LandingPage() {
       </AnimatePresence>
 
       <footer style={{ padding: '4rem 2rem', background: 'var(--ivory)', borderTop: '1px solid var(--rule)' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div style={{ fontSize: '0.8rem', color: 'var(--ink-muted)' }}>© 2026 Legal Olympiad</div>
-          <div style={{ display: 'flex', gap: '2rem' }}>
-            <a href="mailto:connect@legalolympiad.com" style={{ fontSize: '0.8rem', color: 'var(--ink-soft)', textDecoration: 'none' }}>connect@legalolympiad.com</a>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.5rem', alignItems: 'center', textAlign: 'center' }}>
+          <div style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--navy)' }}>
+            “Prepare to Compete. Prepare to Win. THIS SUNDAY!”
+          </div>
+          <div style={{ display: 'flex', gap: '2rem', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <a href="https://legalolympiad.com" target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.85rem', color: 'var(--navy)', textDecoration: 'none', fontWeight: 600 }}>
+              Know More About Us →
+            </a>
+            <a href="mailto:Connect@legalolympiad.com" style={{ fontSize: '0.85rem', color: 'var(--ink-soft)', textDecoration: 'none' }}>
+              Connect@legalolympiad.com
+            </a>
+          </div>
+          <div style={{ fontSize: '0.8rem', color: 'var(--ink-muted)' }}>
+            © 2026 Legal Olympiad. All rights reserved.
           </div>
         </div>
       </footer>

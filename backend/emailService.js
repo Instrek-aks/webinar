@@ -1,9 +1,9 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-const ZOOM_LINK = "https://us06web.zoom.us/j/8735964512?pwd=qBpJGC4Xd6Kb4DVr7pf9PsRCrirlB3.1&omn=83661295344";
-const MEETING_ID = "873 596 4512";
-const PASSCODE = "d6CKmZ";
+const ZOOM_LINK = "https://us06web.zoom.us/j/89081201247?pwd=pWpybefqajKEYypSXjiFvz31M2vgrb.1";
+const MEETING_ID = "890 8120 1247";
+const PASSCODE = "310555";
 
 export const sendWebinarConfirmationEmail = async ({ name, email }) => {
   const apiKey = process.env.API_KEY || process.env.BREVO_API_KEY;
@@ -50,10 +50,10 @@ export const sendWebinarConfirmationEmail = async ({ name, email }) => {
           </p>
 
           <div class="info-card">
-            <div class="info-row"><span class="info-label">Topic:</span> Can AI Replace Lawyers? The Next Constitutional Crisis</div>
-            <div class="info-row"><span class="info-label">Speaker:</span> Sr. Advocate Arundhati Katju</div>
-            <div class="info-row"><span class="info-label">Date:</span> Sunday, 20 September 2026</div>
-            <div class="info-row"><span class="info-label">Time:</span> 11:00 AM – 12:00 PM IST</div>
+            <div class="info-row"><span class="info-label">Topic:</span> UAPA and the Constitution: National Security vs Individual Liberty</div>
+            <div class="info-row"><span class="info-label">Speaker:</span> Akhand Pratap Singh (Special Public Prosecutor – Delhi Police, Experienced Advocate)</div>
+            <div class="info-row"><span class="info-label">Date:</span> Sunday, 27th September, 2026</div>
+            <div class="info-row"><span class="info-label">Time:</span> 4:00 PM – 5:00 PM IST</div>
           </div>
 
           <div class="btn-container">
@@ -66,13 +66,17 @@ export const sendWebinarConfirmationEmail = async ({ name, email }) => {
             <div style="font-size: 15px;"><strong>Passcode:</strong> ${PASSCODE}</div>
           </div>
 
-          <p style="font-size: 13px; color: #6f8a7e; line-height: 1.5; margin-top: 24px;">
-            Please make sure to join 5 minutes early to ensure optimal audio/video setup. Feel free to prepare your questions for the interactive Q&A session with Sr. Advocate Arundhati Katju.
+          <p style="font-size: 14px; font-weight: 600; color: #104633; text-align: center; margin: 20px 0 10px;">
+            ⚡ “Prepare to Compete. Prepare to Win. THIS SUNDAY!”
+          </p>
+
+          <p style="font-size: 13px; color: #6f8a7e; line-height: 1.5; margin-top: 14px;">
+            Please make sure to join 5 minutes early to ensure optimal audio/video setup. Feel free to prepare your questions for the interactive Q&A session with Akhand Pratap Singh.
           </p>
         </div>
         <div class="footer">
           © 2026 Legal Olympiad. All rights reserved.<br/>
-          Need assistance? Reach out to <a href="mailto:connect@legalolympiad.com" style="color: #104633; font-weight: 600;">connect@legalolympiad.com</a>
+          Need assistance? Reach out to <a href="mailto:Connect@legalolympiad.com" style="color: #104633; font-weight: 600;">Connect@legalolympiad.com</a>
         </div>
       </div>
     </body>
@@ -90,7 +94,7 @@ export const sendWebinarConfirmationEmail = async ({ name, email }) => {
       body: JSON.stringify({
         sender: { name: 'Legal Olympiad', email: senderEmail },
         to: [{ email: email, name: name }],
-        subject: 'Confirmed: Registration for "Can AI Replace Lawyers?" Webinar',
+        subject: 'Confirmed: Registration for "UAPA and the Constitution" Webinar #009',
         htmlContent: htmlContent
       })
     });
