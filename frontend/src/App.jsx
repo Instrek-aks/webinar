@@ -87,11 +87,11 @@ function LandingPage() {
             rel="noopener noreferrer"
             style={{ 
               fontSize: '0.85rem', 
-              color: 'var(--gold-soft)', 
+              color: '#D4A425', 
               textDecoration: 'none', 
               fontWeight: 600,
               padding: '6px 14px',
-              border: '1px solid rgba(212,175,55,0.4)',
+              border: '1px solid #D4A425',
               borderRadius: '20px',
               display: 'flex',
               alignItems: 'center',

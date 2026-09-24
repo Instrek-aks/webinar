@@ -28,6 +28,15 @@ const __dirname = path.dirname(__filename);
 const frontendPath = path.join(__dirname, '../frontend/dist');
 app.use(express.static(frontendPath));
 
+// Schema & Model
+const registrationSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  timestamp: { type: Date, default: Date.now }
+});
+
+const Registration = mongoose.model('Registration', registrationSchema);
+
 // MongoDB Connection
 const mongoURI = process.env.MONGODB_URI;
 
@@ -37,25 +46,10 @@ if (!mongoURI) {
 }
 
 mongoose.connect(mongoURI)
-  .then(async () => {
+  .then(() => {
     console.log('✅ Connected to MongoDB');
-    try {
-      const del = await Registration.deleteMany({});
-      console.log(`🗑️ Database reset for Webinar #009: Cleared ${del.deletedCount} previous registration(s).`);
-    } catch (e) {
-      console.error('Error clearing previous registrations:', e);
-    }
   })
   .catch(err => console.error('❌ MongoDB connection error:', err));
-
-// Schema
-const registrationSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  email: { type: String, required: true, unique: true }, // Added unique constraint
-  timestamp: { type: Date, default: Date.now }
-});
-
-const Registration = mongoose.model('Registration', registrationSchema);
 
 import { sendWebinarConfirmationEmail } from './emailService.js';
 
