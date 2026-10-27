@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Routes, Route, useNavigate, Link } from 'react
 import { motion, AnimatePresence } from 'framer-motion';
 import AdminDashboard from './AdminDashboard';
 
-const ZOOM_LINK = "https://us06web.zoom.us/j/89081201247";
+const ZOOM_LINK = "https://us06web.zoom.us/j/84675958939";
 const API_BASE_URL = import.meta.env.VITE_API_URL || 
   (window.location.hostname === 'localhost' ? "http://localhost:5000" : window.location.origin);
 
@@ -115,9 +115,9 @@ function LandingPage() {
             <div className="flex items-center gap-2 text-gold-soft mb-6 text-sm font-mono tracking-widest uppercase">
               Webinar #009 • Legal Olympiad
             </div>
-            <h1>UAPA and the Constitution: <span>National Security vs Individual Liberty</span></h1>
+            <h1>The Constitutional Limits of Stringent Bail Laws: <span>PMLA, Article 21 and the Right to a Speedy Trial</span></h1>
             <p>
-              An incisive legal masterclass exploring the Unlawful Activities (Prevention) Act, statutory bail restrictions, constitutional protections, and the delicate balance between state security and fundamental rights.
+              An incisive legal masterclass exploring the stringent bail conditions under the Prevention of Money Laundering Act (PMLA), the constitutional guarantee of personal liberty under Article 21, and the right to a speedy trial.
             </p>
             <div style={{ marginTop: '1.25rem', display: 'inline-block', padding: '0.5rem 1rem', background: 'rgba(212,175,55,0.12)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: '8px', color: 'var(--gold)', fontWeight: 600, fontSize: '0.85rem' }}>
               ⚡ Prepare to Compete. Prepare to Win. THIS SUNDAY!
@@ -135,7 +135,7 @@ function LandingPage() {
               </div>
               <div>
                 <div style={{ fontSize: '0.65rem', textTransform: 'uppercase', opacity: 0.5 }}>Date & Day</div>
-                <div style={{ fontWeight: 600 }}>Sunday, 27th September, 2026</div>
+                <div style={{ fontWeight: 600 }}>Sunday, 1st November, 2026</div>
               </div>
             </div>
             <div className="hero-meta-item">
@@ -144,7 +144,7 @@ function LandingPage() {
               </div>
               <div>
                 <div style={{ fontSize: '0.65rem', textTransform: 'uppercase', opacity: 0.5 }}>Time</div>
-                <div style={{ fontWeight: 600 }}>4:00 PM – 5:00 PM IST</div>
+                <div style={{ fontWeight: 600 }}>5:00 PM IST</div>
               </div>
             </div>
               <div className="hero-meta-item" style={{ marginTop: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
@@ -152,9 +152,8 @@ function LandingPage() {
                   <GraduationCap size={16} />
                 </div>
                 <div>
-                  <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>Akhand Pratap Singh</div>
-                  <div style={{ fontSize: '0.65rem', opacity: 0.7 }}>Special Public Prosecutor – Delhi Police</div>
-                  <div style={{ fontSize: '0.65rem', opacity: 0.5 }}>Experienced Advocate</div>
+                  <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>Adv Irfan Muzammil</div>
+                  <div style={{ fontSize: '0.65rem', opacity: 0.7 }}>Advocate</div>
                 </div>
               </div>
           </motion.div>
@@ -213,29 +212,29 @@ function LandingPage() {
                 <li className="benefit-item">
                   <CheckCircle2 className="check" size={20} />
                   <div className="benefit-text">
-                    <strong>Statutory Framework of UAPA</strong>
-                    <span>Examine key provisions, scheduled offences, and procedural mechanisms under UAPA.</span>
+                    <strong>Statutory Framework of PMLA</strong>
+                    <span>Examine key provisions and the stringent twin conditions for bail under Section 45 of the PMLA.</span>
                   </div>
                 </li>
                 <li className="benefit-item">
                   <CheckCircle2 className="check" size={20} />
                   <div className="benefit-text">
                     <strong>Constitutional Safeguards & Liberty</strong>
-                    <span>Deep dive into Article 21, stringent bail jurisprudence (Section 43D(5)), and constitutional guarantees.</span>
+                    <span>Deep dive into Article 21, the right to a speedy trial, and the constitutional limits on stringent bail laws.</span>
                   </div>
                 </li>
                 <li className="benefit-item">
                   <CheckCircle2 className="check" size={20} />
                   <div className="benefit-text">
-                    <strong>National Security vs Individual Rights</strong>
-                    <span>Evaluating judicial precedents and the real-world balance between state security and civil liberties.</span>
+                    <strong>Judicial Precedents & Liberty</strong>
+                    <span>Evaluating judicial precedents and the balance between prolonged pre-trial detention and personal liberty.</span>
                   </div>
                 </li>
                 <li className="benefit-item">
                   <CheckCircle2 className="check" size={20} />
                   <div className="benefit-text">
                     <strong>Distinguished Speaker</strong>
-                    <span>Led by Akhand Pratap Singh, Special Public Prosecutor – Delhi Police & Experienced Advocate.</span>
+                    <span>Led by Adv Irfan Muzammil.</span>
                   </div>
                 </li>
               </ul>
@@ -279,14 +278,10 @@ function LandingPage() {
                     {copied ? <Check size={18} className="text-green-600" /> : <Copy size={18} />}
                   </button>
                 </div>
-                <div className="meeting-details-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', borderTop: '1px solid var(--rule)', paddingTop: '1rem' }}>
+                <div className="meeting-details-grid" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1rem', borderTop: '1px solid var(--rule)', paddingTop: '1rem' }}>
                   <div>
                     <div style={{ fontSize: '0.65rem', fontWeight: 600, color: 'var(--ink-muted)', textTransform: 'uppercase' }}>Meeting ID</div>
-                    <div style={{ fontWeight: 600, color: 'var(--navy)', fontSize: '0.9rem' }}>890 8120 1247</div>
-                  </div>
-                  <div>
-                    <div style={{ fontSize: '0.65rem', fontWeight: 600, color: 'var(--ink-muted)', textTransform: 'uppercase' }}>Passcode</div>
-                    <div style={{ fontWeight: 600, color: 'var(--navy)', fontSize: '0.9rem' }}>310555</div>
+                    <div style={{ fontWeight: 600, color: 'var(--navy)', fontSize: '0.9rem' }}>846 7595 8939</div>
                   </div>
                 </div>
               </div>

@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 import * as XLSX from 'xlsx';
 
-const ZOOM_LINK = "https://us06web.zoom.us/j/89081201247";
+const ZOOM_LINK = "https://us06web.zoom.us/j/84675958939";
 const API_BASE_URL = import.meta.env.VITE_API_URL || 
   (window.location.hostname === 'localhost' ? "http://localhost:5000" : window.location.origin);
 
